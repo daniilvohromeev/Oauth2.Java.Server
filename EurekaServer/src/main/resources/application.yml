@@ -1,0 +1,19 @@
+server:
+  port: 41193
+spring:
+  application:
+    name: Eureka-Server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
+    registerWithEureka: false
+    fetchRegistry: false
+  instance:
+    hostname: localhost
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
+    statusPageUrl: 'https://${eureka.instance.hostName}:${eureka.instance.securePort}/info'
+    healthCheckUrl: 'https://${eureka.instance.hostName}:${eureka.instance.securePort}/health'
+    homePageUrl: 'https://${eureka.instance.hostName}:${eureka.instance.securePort}/'
